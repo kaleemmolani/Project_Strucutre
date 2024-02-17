@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  this is products
+  <input type="text" id="name" placeholder="enter the product name"/>
+  <input type="number" id="price" placeholder="enter the product price"/>
+
+
+  <button id="create">
+    Create
+  </button>
+</body>
+<script>  
+
+  const button = document.getElementById('create');
+  const name = document.getElementById('name');
+  const price = document.getElementById('price');
+
+  button.addEventListener('click',(ev)=>{
+    fetch('http://localhost:3000/product/create',{
+      method:"POST",
+      data:JSON.stringify({
+        name:name.value,
+        price:price.value
+      })
+    });
+  })
+
+</script>
+</html>
